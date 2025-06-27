@@ -26,13 +26,8 @@ const FloatingElement = ({ children, delay = 0, className = "" }: { children: Re
 );
 
 export default function HeroSection() {
-  // Set target date to July 2nd of the next year if current date is past July 2nd of this year
-  const currentDate = new Date();
-  const currentYear = currentDate.getFullYear();
-  const targetYear = currentDate.getMonth() > 6 || (currentDate.getMonth() === 6 && currentDate.getDate() >= 2) 
-    ? currentYear + 1 
-    : currentYear;
-  const targetDate = new Date(targetYear, 6, 2); // Month is 0-indexed, so 6 is July
+  // Set target date to July 2nd, 2025 at 10:00 AM
+  const targetDate = new Date(2025, 6, 2, 10, 0, 0); // July 2nd, 2025 (month is 0-indexed) at 10:00:00 AM
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 bg-white">
@@ -87,7 +82,7 @@ export default function HeroSection() {
             <div className="flex items-center justify-center gap-2 mb-4">
               <Clock className="w-6 h-6 text-primary" />
               <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Launching on July 2nd
+                Launching on July 2nd, 2025 at 10:00 AM
               </h3>
             </div>
             <CountdownTimer targetDate={targetDate} className="mb-2" />
